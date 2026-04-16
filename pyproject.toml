@@ -1,0 +1,42 @@
+[project]
+name = "titan-lighting"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+########## LINTING AND FORMATTING TOOL CONFIGURATION ###################################
+
+[tool.mypy]
+exclude = "tests/"
+warn_unused_configs = true
+check_untyped_defs = true
+
+[[tool.mypy.overrides]]
+module="tests.*"
+ignore_errors = true
+
+[tool.interrogate]
+ignore-init-method = true
+fail-under = 100
+verbose = 2
+ignore_magic = true
+
+[tool.ruff]
+line-length = 88
+indent-width = 4
+
+[tool.ruff.lint]
+select = ["F", "I"]
+
+[tool.ruff.lint.isort]
+lines-between-types = 1
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+docstring-code-format = true
+docstring-code-line-length = "dynamic"
